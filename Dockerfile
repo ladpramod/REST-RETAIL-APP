@@ -1,7 +1,7 @@
 FROM openjdk:17
 ARG JAR_FILE=target/Retailer-App.jar
 COPY ${JAR_FILE} retailer-app.jar
-EXPOSE 8080
+EXPOSE 9000
 RUN mkdir /logs
 RUN chmod 777 /logs
 ENV JAVA_OPTS=""
