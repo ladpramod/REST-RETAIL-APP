@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://jainpramodlad:pramod1234@cluster0.oq62ozn.mongodb.net/?retryWrites=true&w=majority
+      database: retailerdb
+  application:
+    name: "REST-RETAIL-APP"
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  server:
+    port: 8082
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  file:
+    name: app.log
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+             MongoTemplate: DEBUG
+
